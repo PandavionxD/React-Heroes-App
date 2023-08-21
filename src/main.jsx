@@ -6,7 +6,8 @@ import { router } from './router/router'
 import { HeroProvider } from './context/HeroContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <HeroProvider >
-    <RouterProvider  router={router} />
-  </HeroProvider>
+    <HeroProvider >
+  <RouterProvider router={router} >
+  </RouterProvider>
+    </HeroProvider>
 )
