@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { UseUserContext } from "../context/HeroContext";
-import { Navbar } from "../components/navbar";
+import { Navbar } from "../components";
 
 export const PrivateRouter = () => {
   
@@ -10,7 +10,7 @@ export const PrivateRouter = () => {
     <>
       <Navbar/>
     {
-      user ? <Outlet /> : <Navigate to="/login" />
+      user ? <Outlet /> : <Navigate to="/" />
     }
     </>
   );

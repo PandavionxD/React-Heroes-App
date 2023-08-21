@@ -1,14 +1,15 @@
-import {  createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import { PublicRouter, PrivateRouter } from "../layout";
 import { ErrorPage } from "../pages/ErrorPage";
 
 import { LoginPage } from "../public/pages/LoginPage";
 
-import { MarvelPage,SearchPage,DcPage } from "../private/pages";
+import { MarvelPage, SearchPage, DcPage } from "../private/pages";
+
 
 export const router = createBrowserRouter([
   {
-    path: "/login",
+    path: "/",
     element: <PublicRouter />,
     errorElement: <ErrorPage />,
     children: [
@@ -32,7 +33,7 @@ export const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           {
-            index:true,
+            path: "/marvel",
             element: <MarvelPage />,
           },
           {

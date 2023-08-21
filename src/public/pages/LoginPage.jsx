@@ -8,8 +8,8 @@ export const LoginPage = () => {
   console.log({ user });
 
   useEffect(() => {
-    if (user) {
-      navigate("/");
+    if (user===true) {
+      navigate("/marvel");
     }
   }, [user]);
 

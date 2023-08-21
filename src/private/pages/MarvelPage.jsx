@@ -1,8 +1,17 @@
-import React from 'react'
+import React from "react";
+import { HeroesList, Title } from "../../components";
+import { heroes } from "../../data/Heros";
+
 
 export const MarvelPage = () => {
 
+  const marvel = heroes.filter(hero => hero.publisher === 'Marvel Comics')
+
   return (
-    <h1>MarvelPage</h1>
-  )
-}
+      <>
+        <Title title="Marvel Comics" />
+        <HeroesList heroes={marvel} />
+      </>
+    );
+};
+
