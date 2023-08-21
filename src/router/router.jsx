@@ -4,7 +4,7 @@ import { ErrorPage } from "../pages/ErrorPage";
 
 import { LoginPage } from "../public/pages/LoginPage";
 
-import { MarvelPage, SearchPage, DcPage } from "../private/pages";
+import { MarvelPage, SearchPage, DcPage, HeroIdPage } from "../private/pages";
 
 
 export const router = createBrowserRouter([
@@ -35,6 +35,10 @@ export const router = createBrowserRouter([
           {
             path: "/marvel",
             element: <MarvelPage />,
+          },
+          {
+            path:'/hero/:id',
+            element: <HeroIdPage />,
           },
           {
             path: "/dc",
