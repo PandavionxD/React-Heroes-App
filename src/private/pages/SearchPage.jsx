@@ -79,7 +79,7 @@ export const SearchPage = () => {
             heroes1.map((hero) => (
               <section key={hero.id} className="my-5 grid place-content-center gap-1 mb-14" >
                 <picture className="w-72" >
-                <img src={`/src/assets/heroes/${hero.id}.jpg`} alt={hero.id} />
+                <img src={`assets/heroes/${hero.id}.jpg`} alt={hero.id} />
                 </picture>
                 <h2 className="text-2xl text-center text-indigo-600" >
                   {hero.superhero}

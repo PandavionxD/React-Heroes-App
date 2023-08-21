@@ -25,7 +25,7 @@ export const HeroIdPage = () => {
             <picture className="col-span-2 ">
               <img
                 className="object-contain "
-                src={`/src/assets/heroes/${hero.id}.jpg`}
+                src={`/assets/heroes/${hero.id}.jpg`}
                 alt={hero.id}
               />
             </picture>
