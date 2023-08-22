@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Title } from "../../components/Title";
 import { Link, useNavigate } from "react-router-dom";
 import { heroes } from "../../data/Heros";
-import {enqueueSnackbar} from 'notistack'
+import { enqueueSnackbar } from "notistack";
 
 export const SearchPage = () => {
   const [value, setvalue] = useState("");
@@ -10,27 +10,26 @@ export const SearchPage = () => {
 
   const [heroes1, setheroes1] = useState();
 
-  const noti = (msj='',variant='info') =>{
-    enqueueSnackbar(msj,{
-      anchorOrigin:{
-        vertical: 'top',
-        horizontal: 'right',
+  const noti = (msj = "", variant = "info") => {
+    enqueueSnackbar(msj, {
+      anchorOrigin: {
+        vertical: "top",
+        horizontal: "right",
       },
-      variant: variant
-    })
-  } 
-
+      variant: variant,
+    });
+  };
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    if (value.trim().length === 0) return  noti('Error, Escribe algo','error') ;
+    if (value.trim().length === 0) return noti("Error, Escribe algo", "error");
     setheroes1(
       heroes.filter((hero) => {
         const a = value.trim().toLowerCase();
         return hero.superhero.toLowerCase().includes(a);
       })
     );
-    noti('Busqueda Realizada','info')
+    noti("Busqueda Realizada", "info");
     setvalue("");
   };
 
@@ -44,9 +43,6 @@ export const SearchPage = () => {
         <div>
           <Title title="Buscador" />
           <form onSubmit={handlesubmit}>
-            <label htmlFor="hero" className="text-lg ">
-              Buscar Heroe:
-            </label>
             <input
               onChange={(e) => setvalue(e.target.value)}
               value={value}
@@ -90,21 +86,28 @@ export const SearchPage = () => {
 
           {heroes1?.length >= 1 &&
             heroes1.map((hero) => (
-              <section key={hero.id} className="my-5 grid place-content-center gap-1 mb-14 animate__animated animate__fadeInUp" >
-                <picture className="w-72" >
-                <img src={`assets/heroes/${hero.id}.jpg`} alt={hero.id} />
+              <section
+                key={hero.id}
+                className="my-5 grid place-content-center gap-1 mb-14 animate__animated animate__fadeInUp"
+              >
+                <picture className="w-72">
+                  <img src={`assets/heroes/${hero.id}.jpg`} alt={hero.id} />
                 </picture>
-                <h2 className="text-2xl text-center text-indigo-600" >
+                <h2 className="text-2xl text-center text-indigo-600">
                   {hero.superhero}
                 </h2>
-                <p className="text-center" >
-                  <span className="me-2 font-semibold" >
-                    Editorial:
-                  </span>
+                <p className="text-center">
+                  <span className="me-2 font-semibold">Editorial:</span>
                   {hero.publisher}
                 </p>
-                <Link to={`/hero/${hero.id}`} className="w-full block text-center outline outline-indigo-600 outline-1 rounded-md text-white bg-indigo-600
-        py-1 px-2 text-md hover:text-indigo-600 hover:bg-white transition-all duration-500" > Ver más</Link>
+                <Link
+                  to={`/hero/${hero.id}`}
+                  className="w-full block text-center outline outline-indigo-600 outline-1 rounded-md text-white bg-indigo-600
+        py-1 px-2 text-md hover:text-indigo-600 hover:bg-white transition-all duration-500"
+                >
+                  {" "}
+                  Ver más
+                </Link>
               </section>
             ))}
         </div>
