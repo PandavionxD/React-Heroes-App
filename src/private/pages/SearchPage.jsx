@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Title } from "../../components/Title";
 import { Link, useNavigate } from "react-router-dom";
 import { heroes } from "../../data/Heros";
+import {enqueueSnackbar} from 'notistack'
 
 export const SearchPage = () => {
   const [value, setvalue] = useState("");
@@ -9,15 +10,27 @@ export const SearchPage = () => {
 
   const [heroes1, setheroes1] = useState();
 
+  const noti = (msj='',variant='info') =>{
+    enqueueSnackbar(msj,{
+      anchorOrigin:{
+        vertical: 'top',
+        horizontal: 'right',
+      },
+      variant: variant
+    })
+  } 
+
+
   const handlesubmit = (e) => {
     e.preventDefault();
-    if (value.trim().length === 0) return;
+    if (value.trim().length === 0) return  noti('Error, Escribe algo','error') ;
     setheroes1(
       heroes.filter((hero) => {
         const a = value.trim().toLowerCase();
         return hero.superhero.toLowerCase().includes(a);
       })
     );
+    noti('Busqueda Realizada','info')
     setvalue("");
   };
 
@@ -77,7 +90,7 @@ export const SearchPage = () => {
 
           {heroes1?.length >= 1 &&
             heroes1.map((hero) => (
-              <section key={hero.id} className="my-5 grid place-content-center gap-1 mb-14" >
+              <section key={hero.id} className="my-5 grid place-content-center gap-1 mb-14 animate__animated animate__fadeInUp" >
                 <picture className="w-72" >
                 <img src={`assets/heroes/${hero.id}.jpg`} alt={hero.id} />
                 </picture>

@@ -19,17 +19,19 @@ export const HeroIdPage = () => {
 
   return (
     <div className="container w-full mb-12">
-      <div className="grid grid-cols-5 gap-5 mt-5 p-5">
+      <div className="grid grid-cols-5 gap-5 place-content-center mt-5 p-5">
         {hero && (
           <>
-            <picture className="col-span-2 ">
+            <picture className="col-span-2 w-80 animate__animated  animate__fadeInLeft ">
               <img
                 className="object-contain "
                 src={`/assets/heroes/${hero.id}.jpg`}
                 alt={hero.id}
               />
             </picture>
-            <div className="col-span-3 p-3 text-md flex flex-col gap-4 shadow-md rounded-md" >
+            <div className="col-span-3 p-3 text-md flex flex-col gap-4 shadow-md rounded-md
+            animate__animated  animate__fadeInRight
+            " >
               <Title title={hero.superhero} />
               <p className="text-lg" >
                 <span className="font-bold me-2" >
