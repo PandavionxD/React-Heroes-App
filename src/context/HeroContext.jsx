@@ -5,6 +5,7 @@ export const HeroContext = createContext();
 
 export const HeroProvider = ({ children }) => {
   const [user, setuser] = useState(false);
+  console.log({user})
   
   return (
     <HeroContext.Provider value={{ user, setuser }}>

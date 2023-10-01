@@ -1,12 +1,18 @@
-import {  Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import { UseUserContext } from "../context/HeroContext";
 
 export const PublicRouter = () => {
-
-  const {user}=UseUserContext()
+  const { user } = UseUserContext();
   return (
-    <div className="container min-h-screen place-content-center grid text-center ">
-      <Outlet/>
-    </div>
+    <>
+      {!user ?
+      (
+        <div className="container min-h-screen place-content-center grid text-center ">
+          <Outlet />
+        </div>
+      ):
+      <Navigate to='/dc' />
+      }
+    </>
   );
 };

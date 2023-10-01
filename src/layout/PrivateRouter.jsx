@@ -10,7 +10,7 @@ export const PrivateRouter = () => {
     <>
       <Navbar/>
     {
-      user ? <Outlet /> : <Navigate to="/" />
+      user ? <Outlet /> : <Navigate to="/login" />
     }
     <Footer/>
     </>

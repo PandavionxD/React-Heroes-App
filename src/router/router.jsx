@@ -9,7 +9,7 @@ import { MarvelPage, SearchPage, DcPage, HeroIdPage } from "../private/pages";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/login",
     element: <PublicRouter />,
     errorElement: <ErrorPage />,
     children: [
@@ -17,8 +17,8 @@ export const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
           {
-            index: true,
-            element: <LoginPage />,
+            index:true,
+            element: <LoginPage/>,
           },
         ],
       },

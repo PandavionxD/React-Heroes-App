@@ -4,14 +4,7 @@ import { useEffect } from "react";
 
 export const LoginPage = () => {
   const { user, setuser } = UseUserContext();
-  const navigate = useNavigate();
-  console.log({ user });
 
-  useEffect(() => {
-    if (user===true) {
-      navigate("/marvel");
-    }
-  }, [user]);
 
   return (
     <div className=" max-w-md border border-indigo-600 p-4 rounded-md shadow-md grid gap-3 ">
